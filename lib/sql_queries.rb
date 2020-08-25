@@ -40,7 +40,8 @@ def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_th
    FROM users 
    INNER JOIN pledges  
    ON user.id = pledges.user_id 
-   GROUP BY projects.title HAVING SUM(pledges.amount) >= projects.funding_goal;"
+   GROUP BY users.name
+   ORDER BY SUM(pledges.amount);"
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
